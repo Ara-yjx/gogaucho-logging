@@ -28,7 +28,7 @@ app.use(BodyParser({
 app.use(respond())
 
 // API routes
-require('./routes')(router)
+require('./routes/index')(router)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
