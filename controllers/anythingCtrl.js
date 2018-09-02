@@ -18,12 +18,12 @@ module.exports = {
       // (ARRAY['testTag'], '{"k":"v"}'::json, '2011-10-1 14:8:00.00 -8:00');
       var now = new Date();
       var timestamp = now.getFullYear() + '-'
-        + now.getMonth() + '-'
-        + now.getDate() + ' '
-        + now.getHours() + ':'
-        + now.getMinutes() + ':'
-        + now.getSeconds() + '.'
-        + now.getMilliseconds();
+        + (now.getUTCMonth()+1) + '-'
+        + now.getUTCDate() + ' '
+        + now.getUTCHours() + ':'
+        + now.getUTCMinutes() + ':'
+        + now.getUTCSeconds() + '.'
+        + now.getUTCMilliseconds();
       var row = `INSERT INTO log.anything VALUES (ARRAY['${tags.join("','")}'], '${JSON.stringify(data)}'::json, '${timestamp}');`
       // console.log(row)
       if (mode == 'test') {
