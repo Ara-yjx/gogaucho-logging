@@ -1,29 +1,35 @@
-# GoGaucho Statistics Backend
+# GoGaucho Logging Backend
 
 ## Anything
 
-Route: /anything
+**Route:** /anything
 
-Method: POST
+**Method:** POST
 
-Header: 
+**Request Header:**
 
-```Content-Type:application/json ```
+Content-Type: application/json 
 
-Body Content
+**Request Body**
 (JSON)
-| name  | type | 
-|:------|:-----|
-| tag | text[] |
-| data | JSON |
-| timestamp | timestamptz |
+| name | type | 
+|:-----|:-----|
+| tag | String[] |
+| data | JSON Object |
 
-(deprecated) 'tag' is an contenation of string segments seperated by ',' and has a max length of 63; can end with ','
+Add "?mode=test" as url query to prevent test data from going into the database, and check whether the body data is processed properly according to the response
 
-Example:
+**Example:**
 ```
+URL: 
+gogaucho.host.address/anything?mode=test
+
+Request Header:
+Content-Type: application/json 
+
+Request Body:
 {
-  "tag": "cat,pet,",
+  "tags": ["cat","pet"],
   "data": {
     "#cat": 3,
     "Did Petry managed to lu the cat today?": "No.",
