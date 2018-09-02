@@ -3,7 +3,7 @@ var knex = require('../services/knexInit');
 module.exports = {
 
   async get(ctx) {
-    var count = await knex('anything').count('data')
+    var count = await knex('log.anything').count('data')
     // console.log('count anything: ')
     ctx.ok({count});
   },
